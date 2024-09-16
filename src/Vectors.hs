@@ -30,3 +30,13 @@ vec1 ->+ vec2 = Vector {start = start vec1, end = Point {x = endX, y = endY}}
               projY = projectionY vec1 + projectionY vec2
               endX = (x . start $ vec1) + projX
               endY = (y . start $ vec1) + projY
+
+
+infixl 6 ->-
+(->-) :: Vector -> Vector -> Vector
+vec1 ->- vec2 = Vector {start = start vec1, end = Point {x = endX, y = endY}}
+        where projX = projectionX vec1 - projectionX vec2
+              projY = projectionY vec1 - projectionY vec2
+              endX = (x . start $ vec1) + projX
+              endY = (y . start $ vec1) + projY
+
