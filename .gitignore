@@ -1,0 +1,5 @@
+dist-newstyle/cache/compiler
+dist-newstyle/cache/config
+dist-newstyle/cache/elaborated-plan
+dist-newstyle/cache/improved-plan
+dist-newstyle/cache/solver-plan
