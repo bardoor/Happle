@@ -23,6 +23,7 @@ projectionY (Vector {start = start, end = end})
         = y end - y start
 
 
+-- Сложение
 infixl 6 ->+
 (->+) :: Vector -> Vector -> Vector
 vec1 ->+ vec2 = Vector {start = start vec1, end = Point {x = endX, y = endY}}
@@ -32,6 +33,7 @@ vec1 ->+ vec2 = Vector {start = start vec1, end = Point {x = endX, y = endY}}
               endY = (y . start $ vec1) + projY
 
 
+-- Вычитание
 infixl 6 ->-
 (->-) :: Vector -> Vector -> Vector
 vec1 ->- vec2 = Vector {start = start vec1, end = Point {x = endX, y = endY}}
@@ -40,6 +42,7 @@ vec1 ->- vec2 = Vector {start = start vec1, end = Point {x = endX, y = endY}}
               endX = (x . start $ vec1) + projX
               endY = (y . start $ vec1) + projY
 
+ 
 -- Скалярное произведение
 infixl 5 ->*
 (->*) :: Vector -> Vector -> Double
