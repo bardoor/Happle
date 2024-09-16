@@ -40,3 +40,10 @@ vec1 ->- vec2 = Vector {start = start vec1, end = Point {x = endX, y = endY}}
               endX = (x . start $ vec1) + projX
               endY = (y . start $ vec1) + projY
 
+-- Скалярное произведение
+infixl 5 ->*
+(->*) :: Vector -> Vector -> Double
+vec1 ->* vec2 = projX + projY
+        where projX = projectionX vec1 * projectionX vec2
+              projY = projectionY vec1 * projectionY vec2
+
