@@ -13,3 +13,20 @@ len :: Vector -> Double
 len (Vector {start = (Point{x = x1, y = y1}), end = (Point{x = x2, y = y2})}) 
         = sqrt $ (x2 - x1) ** 2 + (y2 - y1) ** 2
 
+
+projectionX :: Vector -> Double
+projectionX (Vector {start = start, end = end}) 
+        = x end - x start
+
+projectionY :: Vector -> Double
+projectionY (Vector {start = start, end = end}) 
+        = y end - y start
+
+
+infixl 6 ->+
+(->+) :: Vector -> Vector -> Vector
+vec1 ->+ vec2 = Vector {start = start vec1, end = Point {x = endX, y = endY}}
+        where projX = projectionX vec1 + projectionX vec2
+              projY = projectionY vec1 + projectionY vec2
+              endX = (x . start $ vec1) + projX
+              endY = (y . start $ vec1) + projY
